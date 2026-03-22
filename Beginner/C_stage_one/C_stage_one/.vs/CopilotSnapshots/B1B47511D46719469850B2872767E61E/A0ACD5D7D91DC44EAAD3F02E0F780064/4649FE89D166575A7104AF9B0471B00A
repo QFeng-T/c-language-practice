@@ -1,0 +1,23 @@
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+int main() {
+
+	int number1, number2, sum, ret;
+	number1 = 10;
+	number2 = 20;
+	
+	//输入两个整数并计算它们的和
+	ret = scanf("%d %d", &number1, &number2);
+	if (ret != 2) {
+		fprintf(stderr, "Failed to read two integers.\n");
+		return 1;
+	}
+	
+	//求两个整数的和
+	sum = number1 + number2;
+
+	//输出结果
+	printf("%d\n", sum);
+
+	return 0;
+}}

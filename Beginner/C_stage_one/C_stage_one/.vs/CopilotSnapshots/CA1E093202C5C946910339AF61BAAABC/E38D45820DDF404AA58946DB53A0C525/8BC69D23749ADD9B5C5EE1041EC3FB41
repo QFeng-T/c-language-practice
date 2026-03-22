@@ -1,0 +1,19 @@
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+int main() {
+
+	int number1, number2, sum;
+	number1 = 10;
+	number2 = 20;
+	
+	//输入两个整数并计算它们的和
+	scanf("%d %d", &number1, &number2);
+	
+	//求两个整数的和
+	sum = number1 + number2;
+
+	//输出结果
+	printf("%d\n", sum);
+
+	return 0;
+}
