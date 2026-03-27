@@ -282,3 +282,313 @@
 //	// 同样，strlen("\\t")也会返回2，因为它包含了反斜杠和t。
 //
 //}
+
+//测试地址
+//int main() {
+//
+//	/*int a = 10;
+//	printf("%p\n", &a);*/
+//	//每次重新创建变量时，它的地址可能会发生变化，因为操作系统会为每个变量分配一个新的内存地址。
+//	static int a = 10;
+//	printf("%p\n", &a);
+//	//使用static关键字修饰的变量具有静态存储期，它们在程序的整个生命周期内都存在，并且在内存中占据固定的位置。
+//	//因此，使用static修饰的变量的地址是固定的，不会发生变化。
+//
+////}
+//
+//int main() {
+//
+//	int a = 10;
+//	int* p = &a;
+//	printf("%p\n", p);
+//}
+
+//
+////输出1~100之间所有的奇数
+//int main() {
+//
+//	int a = 1;
+//
+//	for (a = 1; a <= 100; a ++) {
+//
+//		if (a % 2 == 1){
+//
+//			printf("%d ", a);
+//
+//		}
+//
+//	}
+//
+//	return 0;
+//}
+
+////判断闰年的部分功能，但写出来不太容易阅读
+//int year = 0;
+//int month = 0;
+//int day = 0;
+//
+//
+//int main() {
+//	
+//	
+//	//输入年月日，输入只有一行，出生年月日之间的数字没有空格分割
+//	printf("请输入年月日：");
+//	scanf("%4d%2d%2d", &year, &month, &day);
+//
+//	//加入数据范围判断
+//	if (year >= 1990 && year <= 2015 ) {
+//		if (month >= 1 && month <=12) {
+//			int i = year;
+//			int k = month;
+//			int j = day;
+//			//判断是否是闰年，闰年2月有29天，平年2月有28天，其他月份的天数不变
+//			if (i % 4 == 0 && i % 100 != 0 || i % 400 == 0) {
+//				if (k == 2) {
+//					if (j == 29) {
+//						printf("%d\n%d\n%d\n", year, month, day);
+//					}
+//					else {
+//						printf("输入的日期不合法！\n");
+//					}
+//				}
+//				else {
+//					printf("%d\n%d\n%d\n", year, month, day);
+//				}
+//			}
+//			else {
+//				if (k == 2) {
+//					if (j == 28) {
+//						printf("%d\n%d\n%d\n", year, month, day);
+//					}
+//					printf("输入的日期不合法！\n");
+//				}
+//				else {
+//					printf("%d\n%d\n%d\n", year, month, day);
+//				}
+//			}
+//		
+//		}
+//		else {
+//			printf("输入的月份不合法！\n");
+//		}
+//	}
+//	else{
+//		printf("输入的年份不合法！\n");
+//	}
+//	return 0;
+//}
+//
+////写一个输入为8位数字的年月日，输出年月日，输入的年月日之间没有空格分割
+////全局变量
+//int year = 0;
+//int month = 0;
+//int day = 0;
+//int getMonthDay(int year, int month ){
+//	switch (month) {
+//	case 1:
+//	case 3:
+//	case 5:
+//	case 7:
+//	case 8:
+//	case 10:
+//	case 12:
+//		return  31;
+//	case 4:
+//	case 6:
+//	case 9:
+//	case 11:
+//		return 30;
+//	case 2:
+//		return 28;
+//	default:
+//		return -1;
+//	}
+//}
+//
+////主函数
+//int main() {
+//	//输入年月日，输入只有一行，出生年月日之间的数字没有空格分割
+//	printf("请输入年月日：");
+//	scanf("%4d%2d%2d", &year, &month, &day);
+//
+//	//判断年份是否合法<
+//	if (year <= 1900 || year >= 2026) {
+//
+//		printf("输入的年份不合法！\n");
+//
+//	}
+//
+//	//判断月份是否合法
+//	if (month < 0 || month > 12) {
+//
+//		printf("输入的月份不合法！\n");
+//
+//	}
+//
+//	//获取输入的月份的天数
+//	int days = getMonthDay(year, month);
+//
+//	//判断日期是否合法
+//	//判断是否是闰年，是就进if，不是就进else
+//	if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+//
+//		//判断月份是否是2月，是就进if，不是就进else
+//		if (month == 2) {
+//			
+//			//把2月的天数设置为29天
+//			days = 29;
+//			//闰年2月有29天，输入的日期必须是小于等于29天，才能合法
+//			if (day <= 29) {
+//				
+//				//判断其他月份的日期是否合法
+//				
+//				if (day >= 1 && day <= days) {
+//				
+//					printf("%d\n%d\n%d\n", year, month, day);
+//
+//				}
+//				else {
+//					printf("输入的日期不合法！\n");
+//				}
+//			}
+//			else {
+//				printf("输入的日期不合法！\n");
+//			}
+//		}
+//		//不是2月
+//		else {
+//			if (day >= 1 && day <= days) {
+//
+//				printf("%d\n%d\n%d\n", year, month, day);
+//
+//			}
+//			else {
+//				printf("输入的日期不合法！\n");
+//			}
+//		}
+//	}
+//	//不是闰年
+//	else {
+//		if (month == 2) {
+//			if (day <= 28) {
+//				if (day >= 1 && day <= days) {
+//					printf("%d\n%d\n%d\n", year, month, day);
+//				}
+//				else {
+//					printf("输入的日期不合法！\n");
+//				}
+//			}
+//			else {
+//				printf("输入的日期不合法！\n");
+//			}
+//		}
+//		else {
+//			if (day >= 1 && day <= days) {
+//				printf("%d\n%d\n%d\n", year, month, day);
+//			}
+//			else {
+//				printf("输入的日期不合法！\n");
+//			}
+//		}
+//	}
+//	return 0;
+//}
+
+//还是太复杂了，继续优化代码
+
+
+
+////写一个输入为8位数字的年月日，输出年月日，输入的年月日之间没有空格分割、
+//// 全局变量
+//int year = 0;
+//int month = 0;
+//int day = 0;
+//
+////判断是否是闰年
+//isleap(int year) {
+//	return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+//}
+//
+////判断月份的天数
+//getMonthDay(int year, int month) {
+//	switch (month)
+//	{
+//	case 1:case 3:case 5:case 7:case 8:case 10:case 12:
+//		return 31;
+//	case 4:case 6:case 9:case 11:
+//		return 30;
+//	case 2:
+//		if (isleap(year)) {
+//			return 29;
+//		}
+//		else {
+//			return 28;
+//		}
+//	default:
+//		return -1;
+//	}
+//
+//}
+////判断输入的日期是否合法
+//isValidDate(int year ,int month, int day) {
+//
+//	return (year >= 1900 && year <= 2026) && (month > 0 && month <= 12) && (day > 0 && day <= getMonthDay(year, month));
+//
+//}
+//
+////主函数
+//int main() {
+//
+//	//输入年月日，输入只有一行，出生年月日之间的数字没有空格分割
+//	printf("请输入年月日：");
+//	(void)scanf("%4d%2d%2d", &year, &month, &day);
+//
+//	/*int count = scanf("%4d%2d%2d", &year, &month, &day);
+//	if (count != 3) {
+//		printf("输入错误！\n");
+//		return 1;
+//	}*/
+//	//进行输出
+//	if (isValidDate(year, month, day)) {
+//		
+//		printf("%d\n%d\n%d\n", year, month, day);
+//
+//	}
+//	else {
+//		printf("输入的日期不合法！\n");
+//	
+//	}
+//	return 0;
+//}
+
+
+
+//输入学号，3科成绩，输出格式如下：
+//12345678;80.857,98.44,100.00
+//输出该学科学号为12345678，成绩为80.86，98.44，100.00，平均成绩为93.10
+
+//计算平均成绩的函数
+double calculateAverage(float score1, float score2, float score3) {
+	return (score1 + score2 + score3) / 3;
+}
+
+//判断学号是否合法的函数，学号必须是8位数字
+int isValidStdID(const int StdID) {
+	if (strlen(StdID ) > 8) {
+		printf("输入的学号不合法！\n");
+	}
+	//判断学号是否是数字
+	
+
+}
+//定义学号和成绩的全局变量
+int StdID = 0;
+float score1 = 0.0f;
+float score2 = 0.0f;
+float score3 = 0.0f;
+int main() {
+	//输入学号和成绩
+	printf("请输入学号和成绩（格式：学号;成绩1,成绩2,成绩3）：");
+	(void)scanf("%d;%f,%f,%f", &StdID, &score1, &score2, &score3);
+	
+}

@@ -1,11 +1,2 @@
 ﻿  Practice.c
-D:\Learning Code\c-language-practice\Beginner\C_stage_one\C_stage_one\Practice.c(114,24): warning C4133: “函数”: 从“int [3]”到“const char *”的类型不兼容
-D:\Learning Code\c-language-practice\Beginner\C_stage_one\C_stage_one\Practice.c(114,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“size_t”
-      D:\Learning Code\c-language-practice\Beginner\C_stage_one\C_stage_one\Practice.c(114,9):
-      请考虑在格式字符串中使用“%zd”
-  
-D:\Learning Code\c-language-practice\Beginner\C_stage_one\C_stage_one\Practice.c(116,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“size_t”
-      D:\Learning Code\c-language-practice\Beginner\C_stage_one\C_stage_one\Practice.c(116,9):
-      请考虑在格式字符串中使用“%zd”
-  
   C_stage_one.vcxproj -> D:\Learning Code\c-language-practice\Beginner\C_stage_one\C_stage_one\x64\Debug\C_stage_one.exe
