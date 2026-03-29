@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <windows.h>
+#include <ctype.h>
+
+
 
 //int main() {
 //
@@ -569,26 +572,41 @@
 
 //计算平均成绩的函数
 double calculateAverage(float score1, float score2, float score3) {
-	return (score1 + score2 + score3) / 3;
+	return (score1 + score2 + score3) / 3.0;
 }
 
 //判断学号是否合法的函数，学号必须是8位数字
-int isValidStdID(const int StdID) {
-	if (strlen(StdID ) > 8) {
-		printf("输入的学号不合法！\n");
-	}
-	//判断学号是否是数字
-	
+//判断是否是8位数字，如果不是，返回0；如果是，返回1
+int isValidStdID(const char StdID[]) {
+	if (strlen(StdID) != 8) {
+		return 0;
 
+	}
+	//判断学号是否都是数字，如果不是，返回0；如果是，返回1
+		for (int i = 0; StdID[i] != '\0'; i++) {
+			if (!isdigit((unsigned char)StdID[i])) {
+				return 0;
+			}
+		}
+
+	return 1;
 }
+
 //定义学号和成绩的全局变量
-int StdID = 0;
+char StdID[20] = { 0 };
 float score1 = 0.0f;
 float score2 = 0.0f;
 float score3 = 0.0f;
 int main() {
 	//输入学号和成绩
 	printf("请输入学号和成绩（格式：学号;成绩1,成绩2,成绩3）：");
-	(void)scanf("%d;%f,%f,%f", &StdID, &score1, &score2, &score3);
-	
+	(void)scanf("%s;%f,%f,%.f", StdID, &score1, &score2, &score3);
+	if (StdID != isValidStdID(StdID)) {
+		printf("输入的学号不合法！\n");
+	}
+	else {
+		double average = calculateAverage(score1, score2, score3);
+		printf("该学科学号为%s，成绩为%.2f，%.2f，%.2f，平均成绩为%.2f\n", StdID, score1, score2, score3, average);
+	}
+	return 0;
 }
